@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мини-викторина</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="quiz.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Мини-викторина</h1>
+    <p id="progress"></p>
+    <h2 id="question"></h2>
+    <div id="answers" aria-label="Варианты ответа"></div>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <button id="next" type="button" hidden>Следующий вопрос</button>
+    <p id="result" role="status" tabindex="-1" hidden></p>
+  </main>
+</body>
+</html>
