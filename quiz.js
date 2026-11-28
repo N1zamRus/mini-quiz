@@ -6,7 +6,7 @@ class Quiz {
     this.index = 0;
     this.score = 0;
     this.answered = false;
-    this.finished = false;
+    this.finished = questions.length === 0;
   }
 
   answer(choice) {

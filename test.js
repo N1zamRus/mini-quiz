@@ -1,6 +1,11 @@
 'use strict';
 const assert = require('node:assert/strict');
 const { Quiz } = require('./quiz.js');
+const empty = new Quiz([]);
+assert.equal(empty.finished, true);
+assert.equal(empty.answer(0), null);
+assert.equal(empty.next(), false);
+assert.equal(empty.score, 0);
 const quiz = new Quiz([{ answer: 0 }, { answer: 1 }, { answer: 0 }]);
 assert.equal(quiz.answer(0), true);
 assert.equal(quiz.answer(0), null);
