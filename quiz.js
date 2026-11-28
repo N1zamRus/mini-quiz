@@ -34,13 +34,14 @@ if (typeof document !== 'undefined') {
     { text: 'Сколько будет 7 × 8?', choices: ['54', '56', '64'], answer: 1 },
     { text: 'Какой океан самый большой?', choices: ['Тихий', 'Атлантический', 'Индийский'], answer: 0 }
   ];
-  const quiz = new Quiz(questions);
+  let quiz = new Quiz(questions);
   const progress = document.querySelector('#progress');
   const question = document.querySelector('#question');
   const answers = document.querySelector('#answers');
   const feedback = document.querySelector('#feedback');
   const next = document.querySelector('#next');
   const result = document.querySelector('#result');
+  const restart = document.querySelector('#restart');
 
   function render() {
     if (quiz.finished) {
@@ -50,11 +51,18 @@ if (typeof document !== 'undefined') {
       feedback.hidden = true;
       next.hidden = true;
       result.hidden = false;
+      restart.hidden = questions.length === 0;
       result.textContent = `Результат: ${quiz.score} из ${questions.length} правильных ответов.`;
       result.focus();
       return;
     }
     const current = questions[quiz.index];
+    progress.hidden = false;
+    question.hidden = false;
+    answers.hidden = false;
+    feedback.hidden = false;
+    result.hidden = true;
+    restart.hidden = true;
     progress.textContent = `Вопрос ${quiz.index + 1} из ${questions.length}`;
     question.textContent = current.text;
     feedback.textContent = '';
@@ -81,6 +89,11 @@ if (typeof document !== 'undefined') {
       render();
       if (!quiz.finished) answers.querySelector('button').focus();
     }
+  });
+  restart.addEventListener('click', () => {
+    quiz = new Quiz(questions);
+    render();
+    answers.querySelector('button').focus();
   });
   render();
 }
