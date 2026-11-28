@@ -1,0 +1,12 @@
+:root { font-family: system-ui, sans-serif; color: #172554; background: #eff6ff; }
+body { margin: 0; padding: 2rem 1rem; }
+main { max-width: 38rem; margin: 2rem auto; padding: 2rem; border-radius: 1rem; background: white; box-shadow: 0 8px 30px #1e3a8a20; }
+h1 { margin-top: 0; }
+#answers { display: grid; gap: .6rem; }
+[hidden] { display: none !important; }
+button { padding: .75rem 1rem; border: 1px solid #1d4ed8; border-radius: .5rem; background: white; color: #1e3a8a; font: inherit; cursor: pointer; text-align: left; }
+button:hover:not(:disabled) { background: #dbeafe; }
+button:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+button:disabled { cursor: default; color: #475569; border-color: #94a3b8; }
+#next { background: #1d4ed8; color: white; }
+#feedback, #result { font-weight: 600; }
